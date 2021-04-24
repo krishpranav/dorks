@@ -54,5 +54,23 @@ function Google ( site )
         return this
     }
 
+    // save the json file
+    var save_state = function( session_file, state )
+    {
+        fs.write( session_file, JSON.stringify( state ), 'w')
+    }
+
+    // load json file
+    var load_state = function( session_file )
+    {
+        if ( fs.isFile(session_file))
+        {
+            console.log("resume" + session_file)
+            return JSON.parse(fs.read(session_file))
+        }
+    }
+
     
+
+
 }
