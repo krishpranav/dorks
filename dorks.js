@@ -217,3 +217,27 @@ function Google( site )
 		return this
 	}
 }
+
+function GHDB()
+{
+    var web_browser = require('webpage').create()
+    var uri ='https://www.exploit-db.com/google-hacking-database/'
+    var dorks = []
+    var filename = ''
+    var dork_descriptions = []
+    var need_to_extract_dorks = false
+    this.done = false
+    web_browser.viewportSize = { width: 1280, height: 800 }
+    web_browser.__this = this
+
+    web_browser.onConsoleMessage = function(msg)
+    {
+        console.log(msg)
+    }
+
+    this.save = function(result_filename)
+    {
+        filename = result_filename
+        return this
+    }
+}
